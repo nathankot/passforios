@@ -55,7 +55,8 @@ public class PasswordStore {
 
     private let fileManager = FileManager.default
     private lazy var context: NSManagedObjectContext = {
-        let modelURL = Bundle(identifier: Globals.passKitBundleIdentifier)!.url(forResource: "pass", withExtension: "momd")!
+        let modelURL = Bundle(identifier: Globals.passKitBundleIdentifier)!
+            .url(forResource: "pass", withExtension: "momd")!
         let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL)
         let container = NSPersistentContainer(name: "pass", managedObjectModel: managedObjectModel!)
         if FileManager.default.fileExists(atPath: Globals.documentPath) {
